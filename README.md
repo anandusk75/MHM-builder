@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ironwood Construction Co. — Website
 
-## Getting Started
+A production-ready marketing site for a construction company, built with Next.js
+(App Router), TypeScript, Tailwind CSS, and Framer Motion. All copy, imagery, and
+project data are placeholders — swap them out before shipping.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other scripts:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # ESLint
+```
 
-## Learn More
+## Where to edit content
 
-To learn more about Next.js, take a look at the following resources:
+Everything editorial — projects, testimonials, team bios, values, certifications,
+nav links, company contact details — lives in **[`lib/data.ts`](lib/data.ts)**.
+Pages import from this file and render whatever it contains; there's no content
+hard-coded into JSX beyond section labels and static microcopy.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To swap in a real CMS (Sanity, Contentful, etc.) later, replace the exported
+constants/functions in `lib/data.ts` with fetch calls that resolve to the same
+shapes (`Project`, `Testimonial`, `TeamMember`, etc.) — no changes should be
+needed in `app/` or `components/`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Key exports in `lib/data.ts`:
 
-## Deploy on Vercel
+| Export | Used by |
+|---|---|
+| `siteConfig` | Header, Footer, metadata, contact info everywhere |
+| `navLinks` / `footerLinks` | Header, Footer |
+| `residentialProjects` / `commercialProjects` | Listing pages, detail pages, home page |
+| `getProjectBySlug` / `getAdjacentProject` | `[slug]` detail pages |
+| `testimonials` / `homeTestimonial` | Home page pull-quote |
+| `values` / `team` / `certifications` | About page |
+| `renovationProcess` / `renovationGallery` | Alterations & Renovations page |
+| `projectTypeOptions` / `careerOptions` | Contact form dropdown (Contact vs. Join the Team) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Images
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Placeholder photography is pulled live from Unsplash via `next/image` with
+`remotePatterns` configured in `next.config.ts` for `images.unsplash.com`. To
+replace with your own photography, drop files into `public/images/` and update
+the `src` fields in `lib/data.ts` — `next/image` handles local and remote
+sources identically.
+
+## Fonts
+
+`lib/fonts.ts` loads two typefaces via `next/font/google` (self-hosted at
+build time, no external font requests at runtime):
+
+- **Fraunces** — display serif for headlines, exposed as `font-display`
+- **Inter** — body/UI sans, exposed as `font-sans`
+
+Both are wired into Tailwind's theme in `app/globals.css` via `@theme inline`.
+
+## Structure
+
+```
+app/                  Routes (App Router)
+  page.tsx            Home
+  residential/        Listing + [slug] detail pages
+  commercial/         Listing + [slug] detail pages
+  alterations-renovations/
+  about/
+  contact/            Includes the /api/contact route handler
+  join-the-team/
+  sitemap.ts          Generates sitemap.xml
+  robots.ts           Generates robots.txt
+components/           Reusable UI (Header, Footer, Hero, ProjectCard, ProjectGrid,
+                      Testimonial, SectionHeading, CTAButton, ImageGallery,
+                      ContactForm, ProjectDetail, Reveal)
+lib/
+  data.ts             All typed content
+  fonts.ts            next/font setup
+```
+
+## Notes
+
+- The contact form (`components/ContactForm.tsx`) does client-side validation
+  and posts to `app/api/contact/route.ts`, which currently just validates and
+  `console.log`s the submission — wire it up to email/CRM when ready.
+- Motion (scroll reveals, hover states, header transitions, mobile menu) is
+  built with Framer Motion and respects `prefers-reduced-motion` via a global
+  CSS override in `app/globals.css`.
+- Project detail routes are statically generated at build time via
+  `generateStaticParams` in each `[slug]/page.tsx`.
