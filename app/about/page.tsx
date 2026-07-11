@@ -7,7 +7,7 @@ import { values, team, certifications, siteConfig, residentialProjects } from "@
 
 export const metadata: Metadata = {
   title: "About",
-  description: `The story, values, and people behind ${siteConfig.name} in ${siteConfig.region}.`,
+  description: `The story, values, and people behind ${siteConfig.name}, headquartered in ${siteConfig.region}.`,
 };
 
 const heroImage = residentialProjects[3].heroImage;
@@ -26,14 +26,15 @@ export default function AboutPage() {
       {/* Story */}
       <section className="mx-auto max-w-3xl px-6 py-24 sm:py-32 lg:px-10">
         <Reveal>
-          <SectionHeading eyebrow="Our Story" title={`${yearsInBusiness} years in ${siteConfig.region}`} />
+          <SectionHeading eyebrow="Our Story" title={`${yearsInBusiness} years of building ${siteConfig.serviceArea}`} />
           <div className="mt-8 space-y-5 text-base leading-relaxed text-muted">
             <p>
               {siteConfig.name} started in {siteConfig.foundedYear} as a two-person crew
-              taking on kitchen remodels around {siteConfig.region}. The work changed —
-              we now run ground-up commercial builds alongside custom homes — but the
-              reason clients called us back never did: we say what a job will cost and
-              when it will finish, and then we hit both numbers.
+              taking on kitchen remodels near our home base in {siteConfig.region}. The work
+              changed — we now run ground-up commercial builds and custom homes for clients
+              {" "}{siteConfig.serviceArea} — but the reason clients called us back never did:
+              we say what a job will cost and when it will finish, and then we hit both
+              numbers.
             </p>
             <p>
               Today that means a full-time staff of project managers, superintendents,

@@ -26,24 +26,26 @@ export interface GalleryImage {
 // Site / company info
 // ---------------------------------------------------------------------------
 
-// TODO: region, address, and email are placeholders — replace with MHM's
-// real details when available. Phone and name come directly from the
-// provided logo artwork (public/logo/).
+// TODO: `url` is a guessed domain, not confirmed — replace once MHM's real
+// website domain is known. Everything else below is now real client info.
 export const siteConfig = {
   name: "MHM Custom Home Builders",
   shortName: "MHM",
   legalSuffix: "General Contractor",
   tagline: "We build for people who think long-term.",
-  region: "Northeastern Pennsylvania",
-  foundedYear: 1998,
+  // Physical HQ location — not a service-area limit. MHM builds nationwide;
+  // use `serviceArea` for copy describing who they serve.
+  region: "Tobyhanna, Pennsylvania",
+  serviceArea: "across the country",
+  foundedYear: 1980,
   description:
-    "MHM Custom Home Builders is a Northeastern Pennsylvania general contractor delivering considered residential and commercial projects for homeowners and architects who value craft over shortcuts.",
+    "MHM Custom Home Builders is a general contractor headquartered in Tobyhanna, Pennsylvania, delivering considered residential and commercial projects for homeowners and architects across the country who value craft over shortcuts.",
   phone: "(570) 998-1909",
   phoneHref: "tel:+15709981909",
-  email: "info@mhmcustomhomebuilders.com",
+  email: "mhmgcbuilders@gmail.com",
   address: {
-    line1: "Serving Northeastern Pennsylvania",
-    line2: "Address available upon request",
+    line1: "5640 Pembrook Dr",
+    line2: "Tobyhanna, PA 18466",
   },
   social: {
     instagram: "https://instagram.com",

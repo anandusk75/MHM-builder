@@ -50,13 +50,17 @@ Key exports in `lib/data.ts`:
 
 ## Logo
 
-The real logo files live in `public/logo/` (`mhm-logo-primary.svg`,
-`mhm-logo-horizontal.svg`, `mhm-logo-dark.svg`) — each is a self-contained
-badge with its own background baked in, so they're used where a fixed
-background is fine (Footer, Open Graph image). The sticky header uses a plain
-`MHM` text wordmark instead, since the header needs to go transparent over
-the hero image. `app/icon.svg` is a cropped version of the roofline mark used
-as the browser tab favicon.
+The current logo is the circular chrome badge at `public/logo/mhm-badge-logo.jpg`,
+used in the Header, Footer, Open Graph image, and browser favicon
+(`app/icon.jpg`). It's a raster JPG with a self-contained circular design, so
+it's cropped to a circle on-page via CSS (`object-cover` + `rounded-full`)
+rather than needing separate light/dark variants — unlike the flat SVG
+wordmark it replaced, its dark background reads fine over both the
+transparent (over-hero) and solid header states without color-swapping.
+
+Earlier flat SVG lockups (`mhm-logo-primary.svg`, `mhm-logo-horizontal.svg`,
+`mhm-logo-horizontal-clean.svg`, `mhm-logo-dark.svg`) are still in
+`public/logo/` for reference but are no longer used anywhere on the site.
 
 ## Images
 

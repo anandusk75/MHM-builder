@@ -6,7 +6,7 @@ import { commercialProjects, siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Commercial Projects",
-  description: `Ground-up construction, adaptive reuse, and tenant build-outs delivered by ${siteConfig.name} in ${siteConfig.region}.`,
+  description: `Ground-up construction, adaptive reuse, and tenant build-outs delivered by ${siteConfig.name} ${siteConfig.serviceArea}.`,
 };
 
 const heroImage = commercialProjects[0].heroImage;

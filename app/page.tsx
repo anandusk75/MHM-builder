@@ -59,8 +59,8 @@ export default function HomePage() {
           <Reveal>
             <p className="font-display text-3xl leading-snug text-ink sm:text-4xl">
               For more than {new Date().getFullYear() - siteConfig.foundedYear} years,{" "}
-              {siteConfig.region} has trusted us to build the homes and buildings they plan
-              on keeping for the next fifty.
+              clients across the country have trusted us to build the homes and buildings
+              they plan on keeping for the next fifty.
             </p>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
               Whether you&apos;re a homeowner planning the last renovation you&apos;ll ever

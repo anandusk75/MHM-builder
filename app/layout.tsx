@@ -8,7 +8,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Construction, ${siteConfig.region}`,
+    default: `${siteConfig.name} | Nationwide General Contractor`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    images: [{ url: "/logo/mhm-logo-primary.svg" }],
+    images: [{ url: "/logo/mhm-badge-logo.jpg" }],
     locale: "en_US",
     type: "website",
   },

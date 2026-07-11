@@ -53,7 +53,7 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
         <Link href="/" aria-label="MHM Custom Home Builders — Home">
-          <HeaderLogo solid={solid} />
+          <HeaderLogo />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">

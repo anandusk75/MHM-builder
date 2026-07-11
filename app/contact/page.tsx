@@ -7,7 +7,7 @@ import { siteConfig, projectTypeOptions, commercialProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Get in touch with ${siteConfig.name} about a residential or commercial project in ${siteConfig.region}.`,
+  description: `Get in touch with ${siteConfig.name} about a residential or commercial project ${siteConfig.serviceArea}.`,
 };
 
 const heroImage = commercialProjects[3].heroImage;

@@ -7,7 +7,7 @@ import { siteConfig, careerOptions, residentialProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Join the Team",
-  description: `Careers at ${siteConfig.name} — join a crew building residential and commercial projects across ${siteConfig.region}.`,
+  description: `Careers at ${siteConfig.name} — join a crew building residential and commercial projects ${siteConfig.serviceArea}.`,
 };
 
 const heroImage = residentialProjects[2].heroImage;
