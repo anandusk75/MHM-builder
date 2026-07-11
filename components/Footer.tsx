@@ -45,14 +45,6 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/join-the-team"
-                  className="text-sm font-medium text-accent transition-colors hover:text-accent-dark"
-                >
-                  Join the Team &rarr;
-                </Link>
-              </li>
             </ul>
           </div>
 
