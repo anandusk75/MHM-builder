@@ -35,7 +35,7 @@ export default function AlterationsRenovationsPage() {
               <p>
                 Renovations are harder than new builds — you&apos;re building around
                 someone&apos;s daily life, and around a structure whose history is never
-                fully on the drawings. Ironwood runs a dedicated renovations crew rather than
+                fully on the drawings. {siteConfig.shortName} runs a dedicated renovations crew rather than
                 rotating new-build teams through remodel work, because the two disciplines
                 reward different instincts.
               </p>
@@ -60,7 +60,7 @@ export default function AlterationsRenovationsPage() {
           <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
             {renovationProcess.map((step, i) => (
               <Reveal key={step.step} delay={0.05 * i}>
-                <span className="font-display text-3xl text-steel">{step.step}</span>
+                <span className="font-display text-3xl text-accent">{step.step}</span>
                 <h3 className="mt-3 font-display text-lg text-ink">{step.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{step.description}</p>
               </Reveal>

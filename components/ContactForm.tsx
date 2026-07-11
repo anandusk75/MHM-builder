@@ -88,7 +88,7 @@ export default function ContactForm({
         <button
           type="button"
           onClick={() => setStatus("idle")}
-          className="mt-6 text-sm font-medium text-steel hover:text-steel-dark"
+          className="mt-6 text-sm font-medium text-accent hover:text-accent-dark"
         >
           Send another message
         </button>
@@ -110,7 +110,7 @@ export default function ContactForm({
             autoComplete="name"
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? `${formId}-name-error` : undefined}
-            className="mt-2 w-full border-0 border-b border-line bg-transparent py-2 text-ink outline-none focus:border-steel"
+            className="mt-2 w-full border-0 border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
           />
           {errors.name ? (
             <p id={`${formId}-name-error`} className="mt-2 text-xs text-red-700">
@@ -130,7 +130,7 @@ export default function ContactForm({
             autoComplete="email"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? `${formId}-email-error` : undefined}
-            className="mt-2 w-full border-0 border-b border-line bg-transparent py-2 text-ink outline-none focus:border-steel"
+            className="mt-2 w-full border-0 border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
           />
           {errors.email ? (
             <p id={`${formId}-email-error`} className="mt-2 text-xs text-red-700">
@@ -150,7 +150,7 @@ export default function ContactForm({
             autoComplete="tel"
             aria-invalid={!!errors.phone}
             aria-describedby={errors.phone ? `${formId}-phone-error` : undefined}
-            className="mt-2 w-full border-0 border-b border-line bg-transparent py-2 text-ink outline-none focus:border-steel"
+            className="mt-2 w-full border-0 border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
           />
           {errors.phone ? (
             <p id={`${formId}-phone-error`} className="mt-2 text-xs text-red-700">
@@ -169,7 +169,7 @@ export default function ContactForm({
             defaultValue=""
             aria-invalid={!!errors.projectType}
             aria-describedby={errors.projectType ? `${formId}-projectType-error` : undefined}
-            className="mt-2 w-full border-0 border-b border-line bg-transparent py-2 text-ink outline-none focus:border-steel"
+            className="mt-2 w-full border-0 border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
           >
             <option value="" disabled>
               Select an option
@@ -198,7 +198,7 @@ export default function ContactForm({
           rows={5}
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? `${formId}-message-error` : undefined}
-          className="mt-2 w-full resize-none border-0 border-b border-line bg-transparent py-2 text-ink outline-none focus:border-steel"
+          className="mt-2 w-full resize-none border-0 border-b border-line bg-transparent py-2 text-ink outline-none focus:border-accent"
         />
         {errors.message ? (
           <p id={`${formId}-message-error`} className="mt-2 text-xs text-red-700">
@@ -216,7 +216,7 @@ export default function ContactForm({
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center gap-2 rounded-full bg-steel px-6 py-3 text-sm font-medium tracking-wide text-paper transition-colors duration-300 hover:bg-steel-dark disabled:opacity-60"
+        className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium tracking-wide text-paper transition-colors duration-300 hover:bg-accent-dark disabled:opacity-60"
       >
         {status === "submitting" ? "Sending…" : "Send Message"}
       </button>

@@ -32,7 +32,7 @@ export default function ContactPage() {
           <Reveal delay={0.1} className="space-y-10">
             <div>
               <h3 className="text-xs font-medium uppercase tracking-widest text-muted">Phone</h3>
-              <a href={siteConfig.phoneHref} className="mt-2 block text-lg text-ink hover:text-steel">
+              <a href={siteConfig.phoneHref} className="mt-2 block text-lg text-ink hover:text-accent">
                 {siteConfig.phone}
               </a>
             </div>
@@ -40,7 +40,7 @@ export default function ContactPage() {
               <h3 className="text-xs font-medium uppercase tracking-widest text-muted">Email</h3>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="mt-2 block text-lg text-ink hover:text-steel"
+                className="mt-2 block text-lg text-ink hover:text-accent"
               >
                 {siteConfig.email}
               </a>

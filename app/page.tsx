@@ -85,7 +85,7 @@ export default function HomePage() {
               </div>
             </dl>
             <CTAButton href="/about" variant="solid" className="self-start">
-              About Ironwood
+              About {siteConfig.shortName}
             </CTAButton>
           </Reveal>
         </div>
@@ -104,7 +104,7 @@ export default function HomePage() {
             />
           </Reveal>
           <Reveal delay={0.1}>
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-steel">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-accent">
               Featured Project
             </span>
             <h2 className="mt-4 font-display text-4xl text-ink sm:text-5xl">{featured.title}</h2>
@@ -113,7 +113,7 @@ export default function HomePage() {
             </p>
             <Link
               href={`/${featured.category}/${featured.slug}`}
-              className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-steel hover:text-steel-dark"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-dark"
             >
               View Project &rarr;
             </Link>

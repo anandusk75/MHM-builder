@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { footerLinks, siteConfig } from "@/lib/data";
 
@@ -9,8 +10,14 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr_1fr]">
           <div>
-            <p className="font-display text-2xl text-ink">{siteConfig.name}</p>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
+            <Image
+              src="/logo/mhm-logo-horizontal.svg"
+              alt={`${siteConfig.name} — ${siteConfig.legalSuffix}`}
+              width={280}
+              height={72}
+              className="h-auto w-64"
+            />
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted">
               {siteConfig.description}
             </p>
           </div>
@@ -24,7 +31,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-ink transition-colors hover:text-steel"
+                    className="text-sm text-ink transition-colors hover:text-accent"
                   >
                     {link.label}
                   </Link>
@@ -33,7 +40,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/join-the-team"
-                  className="text-sm font-medium text-steel transition-colors hover:text-steel-dark"
+                  className="text-sm font-medium text-accent transition-colors hover:text-accent-dark"
                 >
                   Join the Team &rarr;
                 </Link>
@@ -47,12 +54,12 @@ export default function Footer() {
             </p>
             <ul className="mt-4 space-y-3 text-sm text-ink">
               <li>
-                <a href={siteConfig.phoneHref} className="hover:text-steel">
+                <a href={siteConfig.phoneHref} className="hover:text-accent">
                   {siteConfig.phone}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-steel">
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-accent">
                   {siteConfig.email}
                 </a>
               </li>
@@ -67,7 +74,7 @@ export default function Footer() {
 
         <div className="mt-16 flex flex-col gap-2 border-t border-line pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {year} {siteConfig.name} — All rights reserved.</p>
-          <p>Licensed & Bonded General Contractor — Oregon CCB</p>
+          <p>Licensed & Bonded General Contractor</p>
         </div>
       </div>
     </footer>

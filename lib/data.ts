@@ -26,26 +26,30 @@ export interface GalleryImage {
 // Site / company info
 // ---------------------------------------------------------------------------
 
+// TODO: region, address, and email are placeholders — replace with MHM's
+// real details when available. Phone and name come directly from the
+// provided logo artwork (public/logo/).
 export const siteConfig = {
-  name: "Ironwood Construction Co.",
-  shortName: "Ironwood",
+  name: "MHM Custom Home Builders",
+  shortName: "MHM",
+  legalSuffix: "General Contractor",
   tagline: "We build for people who think long-term.",
-  region: "Portland, Oregon",
+  region: "Northeastern Pennsylvania",
   foundedYear: 1998,
   description:
-    "Ironwood Construction Co. is a Portland, Oregon design-build firm delivering considered residential and commercial projects for homeowners and architects who value craft over shortcuts.",
-  phone: "(503) 555-0142",
-  phoneHref: "tel:+15035550142",
-  email: "hello@ironwoodconstruction.com",
+    "MHM Custom Home Builders is a Northeastern Pennsylvania general contractor delivering considered residential and commercial projects for homeowners and architects who value craft over shortcuts.",
+  phone: "(570) 998-1909",
+  phoneHref: "tel:+15709981909",
+  email: "info@mhmcustomhomebuilders.com",
   address: {
-    line1: "1420 NW Front Ave, Suite 220",
-    line2: "Portland, OR 97209",
+    line1: "Serving Northeastern Pennsylvania",
+    line2: "Address available upon request",
   },
   social: {
     instagram: "https://instagram.com",
     linkedin: "https://linkedin.com",
   },
-  url: "https://www.ironwoodconstruction.com",
+  url: "https://www.mhmcustomhomebuilders.com",
 };
 
 export const navLinks = [
@@ -362,13 +366,13 @@ export interface Testimonial {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Ironwood treated our budget like it was their own money. Every change order came with a real conversation, not a markup.",
+      "MHM treated our budget like it was their own money. Every change order came with a real conversation, not a markup.",
     author: "Dana Whitfield",
     role: "Homeowner, Cedar Ridge Residence",
   },
   {
     quote:
-      "We've run four projects through Ironwood in six years. They're the only contractor I've stopped shopping around against.",
+      "We've run four projects through MHM in six years. They're the only contractor I've stopped shopping around against.",
     author: "Marcus Hale",
     role: "Principal, Corrigan Bloom Partners",
   },
@@ -444,7 +448,7 @@ export const team: TeamMember[] = [
 ];
 
 export const certifications: string[] = [
-  "Licensed & Bonded General Contractor — Oregon CCB",
+  "Licensed & Bonded General Contractor", // TODO: add real state license number once available
   "OSHA-30 Certified Site Safety Program",
   "EPA Lead-Safe Certified Firm",
   "Member, Associated General Contractors of America",

@@ -27,7 +27,7 @@ export default function JoinTheTeamPage() {
         <Reveal>
           <SectionHeading
             eyebrow="Working Here"
-            title="What it's like on an Ironwood crew"
+            title={`What it's like on an ${siteConfig.shortName} crew`}
           />
           <div className="mt-6 space-y-5 text-base leading-relaxed text-muted">
             <p>

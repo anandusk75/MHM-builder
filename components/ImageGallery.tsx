@@ -75,7 +75,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
               type="button"
               onClick={close}
               aria-label="Close gallery"
-              className="absolute right-6 top-6 text-3xl leading-none text-paper hover:text-steel"
+              className="absolute right-6 top-6 text-3xl leading-none text-paper hover:text-accent"
             >
               &times;
             </button>
@@ -84,7 +84,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
               type="button"
               onClick={showPrev}
               aria-label="Previous image"
-              className="absolute left-2 top-1/2 -translate-y-1/2 p-4 text-3xl text-paper hover:text-steel sm:left-6"
+              className="absolute left-2 top-1/2 -translate-y-1/2 p-4 text-3xl text-paper hover:text-accent sm:left-6"
             >
               &#8249;
             </button>
@@ -103,7 +103,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
               type="button"
               onClick={showNext}
               aria-label="Next image"
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-4 text-3xl text-paper hover:text-steel sm:right-6"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-4 text-3xl text-paper hover:text-accent sm:right-6"
             >
               &#8250;
             </button>

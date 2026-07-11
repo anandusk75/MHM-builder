@@ -53,7 +53,7 @@ export default function AboutPage() {
           <div className="grid gap-10 sm:grid-cols-3">
             {values.map((value, i) => (
               <Reveal key={value.title} delay={0.1 * i}>
-                <span className="font-display text-5xl text-steel">
+                <span className="font-display text-5xl text-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-4 font-display text-2xl text-ink">{value.title}</h3>
@@ -102,7 +102,7 @@ export default function AboutPage() {
                   key={item}
                   className="flex items-start gap-3 border-t border-line pt-4 text-sm text-ink"
                 >
-                  <span aria-hidden className="mt-1 text-steel">
+                  <span aria-hidden className="mt-1 text-accent">
                     &#9635;
                   </span>
                   {item}

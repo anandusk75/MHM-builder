@@ -28,7 +28,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
           <h3 className="font-display text-xl text-ink">{project.title}</h3>
           <p className="mt-1 text-sm text-muted">{project.summary}</p>
         </div>
-        <span className="mt-1 shrink-0 text-sm text-steel opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <span className="mt-1 shrink-0 text-sm text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
           View &rarr;
         </span>
       </div>

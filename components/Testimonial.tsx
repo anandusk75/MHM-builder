@@ -9,7 +9,7 @@ export default function Testimonial({ testimonial }: TestimonialProps) {
   return (
     <section className="bg-paper-dim py-24 sm:py-32">
       <Reveal className="mx-auto max-w-3xl px-6 text-center">
-        <span aria-hidden className="font-display text-6xl text-steel">
+        <span aria-hidden className="font-display text-6xl text-accent">
           &ldquo;
         </span>
         <blockquote className="font-display text-2xl italic leading-snug text-ink sm:text-3xl">

@@ -4,7 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { navLinks, siteConfig } from "@/lib/data";
+import { navLinks } from "@/lib/data";
+import HeaderLogo from "./HeaderLogo";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,13 +52,8 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
-        <Link
-          href="/"
-          className={`font-display text-lg tracking-tight transition-colors ${
-            solid ? "text-ink" : "text-paper"
-          }`}
-        >
-          {siteConfig.shortName}
+        <Link href="/" aria-label="MHM Custom Home Builders — Home">
+          <HeaderLogo solid={solid} />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">

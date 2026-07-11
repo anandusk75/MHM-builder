@@ -85,11 +85,11 @@ export default function ProjectDetail({ project, nextProject }: ProjectDetailPro
             <span className="text-xs font-medium uppercase tracking-widest text-muted">
               Next Project
             </span>
-            <h3 className="mt-2 font-display text-3xl text-ink transition-colors group-hover:text-steel">
+            <h3 className="mt-2 font-display text-3xl text-ink transition-colors group-hover:text-accent">
               {nextProject.title}
             </h3>
           </div>
-          <span className="text-sm font-medium text-steel">View Project &rarr;</span>
+          <span className="text-sm font-medium text-accent">View Project &rarr;</span>
         </Link>
       </section>
     </>

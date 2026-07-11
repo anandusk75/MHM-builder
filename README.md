@@ -1,8 +1,10 @@
-# Ironwood Construction Co. — Website
+# MHM Custom Home Builders — Website
 
-A production-ready marketing site for a construction company, built with Next.js
-(App Router), TypeScript, Tailwind CSS, and Framer Motion. All copy, imagery, and
-project data are placeholders — swap them out before shipping.
+A production-ready marketing site for MHM Custom Home Builders (General
+Contractor), built with Next.js (App Router), TypeScript, Tailwind CSS, and
+Framer Motion. The logo, company name, and phone number are real; region,
+address, email, and all project/testimonial/team content are still
+placeholders — see the `TODO` comments in `lib/data.ts`.
 
 ## Getting started
 
@@ -45,6 +47,16 @@ Key exports in `lib/data.ts`:
 | `values` / `team` / `certifications` | About page |
 | `renovationProcess` / `renovationGallery` | Alterations & Renovations page |
 | `projectTypeOptions` / `careerOptions` | Contact form dropdown (Contact vs. Join the Team) |
+
+## Logo
+
+The real logo files live in `public/logo/` (`mhm-logo-primary.svg`,
+`mhm-logo-horizontal.svg`, `mhm-logo-dark.svg`) — each is a self-contained
+badge with its own background baked in, so they're used where a fixed
+background is fine (Footer, Open Graph image). The sticky header uses a plain
+`MHM` text wordmark instead, since the header needs to go transparent over
+the hero image. `app/icon.svg` is a cropped version of the roofline mark used
+as the browser tab favicon.
 
 ## Images
 

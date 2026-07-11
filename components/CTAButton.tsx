@@ -9,9 +9,9 @@ interface CTAButtonProps {
 }
 
 const variants = {
-  solid: "bg-steel text-paper hover:bg-steel-dark",
+  solid: "bg-accent text-paper hover:bg-accent-dark",
   outline: "border border-paper text-paper hover:bg-paper hover:text-ink",
-  ghost: "text-ink hover:text-steel",
+  ghost: "text-ink hover:text-accent",
 };
 
 export default function CTAButton({ href, children, variant = "solid", className = "" }: CTAButtonProps) {
