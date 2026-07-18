@@ -423,29 +423,14 @@ export interface TeamMember {
 
 export const team: TeamMember[] = [
   {
-    name: "Robert Ainsley",
-    role: "Founder & Principal",
-    image: { src: unsplash("1500648767791-00dcc994a43e"), alt: "Portrait of Robert Ainsley, Founder & Principal" },
+    name: "Francis Sloan",
+    role: "Architect",
+    image: { src: "/images/team/francis-sloan.jpg", alt: "Portrait of Francis Sloan, Architect, reviewing building plans" },
   },
   {
-    name: "Sarah Kowalski",
-    role: "Director of Construction",
-    image: { src: unsplash("1472099645785-5658abf4ff4e"), alt: "Portrait of Sarah Kowalski, Director of Construction" },
-  },
-  {
-    name: "Daniel Ochoa",
-    role: "Senior Project Manager",
-    image: { src: unsplash("1507003211169-0a1dd7228f2d"), alt: "Portrait of Daniel Ochoa, Senior Project Manager" },
-  },
-  {
-    name: "Emily Traverso",
-    role: "Estimating Lead",
-    image: { src: unsplash("1573496359142-b8d87734a5a2"), alt: "Portrait of Emily Traverso, Estimating Lead" },
-  },
-  {
-    name: "Marcus Webb",
-    role: "Site Safety Manager",
-    image: { src: unsplash("1519085360753-af0119f7cbe7"), alt: "Portrait of Marcus Webb, Site Safety Manager" },
+    name: "Dante",
+    role: "Chief Morale Officer",
+    image: { src: "/images/team/dante.jpg", alt: "Portrait of Dante, Chief Morale Officer" },
   },
 ];
 
