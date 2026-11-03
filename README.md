@@ -64,11 +64,18 @@ Earlier flat SVG lockups (`mhm-logo-primary.svg`, `mhm-logo-horizontal.svg`,
 
 ## Images
 
-Placeholder photography is pulled live from Unsplash via `next/image` with
-`remotePatterns` configured in `next.config.ts` for `images.unsplash.com`. To
-replace with your own photography, drop files into `public/images/` and update
-the `src` fields in `lib/data.ts` — `next/image` handles local and remote
-sources identically.
+All photography is served from `public/images/` — nothing is loaded from a
+third-party host. Paths are set in `lib/data.ts` (via the `photo()` helper) and
+`app/page.tsx` (home hero):
+
+- `home/hero.jpg`
+- `projects/<slug>/main.jpg` — project page hero and listing card
+- `projects/<slug>/gallery-<n>.jpg`
+- `renovations/<n>.jpg`
+
+To use real photography, overwrite a file at the same path (or change the path
+in `lib/data.ts`). The current files are stock placeholders; if they are
+missing, run `node scripts/download-photos.mjs` once to fetch them.
 
 ## Fonts
 

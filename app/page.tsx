@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 const homeHeroImage = {
-  src: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&auto=format&fit=crop",
+  src: "/images/home/hero.jpg",
   alt: "Upward view of a modern glass and steel building against a clear sky",
 };
 

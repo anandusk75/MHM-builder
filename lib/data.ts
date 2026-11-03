@@ -12,9 +12,13 @@
 // Image helper
 // ---------------------------------------------------------------------------
 
-/** Builds a consistent Unsplash source URL from a photo id. */
-function unsplash(id: string, params = "q=80&auto=format&fit=crop") {
-  return `https://images.unsplash.com/photo-${id}?${params}`;
+/**
+ * Builds the public URL for a photo stored in /public/images.
+ * To use a real photo, overwrite the file at that path (keep the name) or
+ * change the path here in data.ts.
+ */
+function photo(path: string) {
+  return `/images/${path}`;
 }
 
 export interface GalleryImage {
@@ -109,18 +113,18 @@ export const residentialProjects: Project[] = [
       "The result is a home that reads as effortless from the street and complex only when you understand what it took to keep the cantilever level through two Oregon winters.",
     ],
     heroImage: {
-      src: unsplash("1600585154340-be6161a56a0c"),
+      src: photo("projects/cedar-ridge-residence/main.jpg"),
       alt: "Modern cedar-clad hillside residence with large glass windows at dusk",
     },
     cardImage: {
-      src: unsplash("1600585154340-be6161a56a0c"),
+      src: photo("projects/cedar-ridge-residence/main.jpg"),
       alt: "Modern cedar-clad hillside residence with large glass windows at dusk",
     },
     gallery: [
-      { src: unsplash("1600566753086-00f18fb6b3ea"), alt: "Open-plan living room with exposed timber ceiling" },
-      { src: unsplash("1600585152220-90363fe7e115"), alt: "Kitchen with waterfall stone island" },
-      { src: unsplash("1600210492486-724fe5c67fb0"), alt: "Primary bedroom with floor-to-ceiling windows" },
-      { src: unsplash("1600607687920-4e2a09cf159d"), alt: "Exterior deck detail with steel railing" },
+      { src: photo("projects/cedar-ridge-residence/gallery-1.jpg"), alt: "Open-plan living room with exposed timber ceiling" },
+      { src: photo("projects/cedar-ridge-residence/gallery-2.jpg"), alt: "Kitchen with waterfall stone island" },
+      { src: photo("projects/cedar-ridge-residence/gallery-3.jpg"), alt: "Primary bedroom with floor-to-ceiling windows" },
+      { src: photo("projects/cedar-ridge-residence/gallery-4.jpg"), alt: "Exterior deck detail with steel railing" },
     ],
   },
   {
@@ -139,18 +143,18 @@ export const residentialProjects: Project[] = [
       "Eighteen months on, the client's only request for the next project is 'more of that.'",
     ],
     heroImage: {
-      src: unsplash("1486406146926-c627a92ad1ab"),
+      src: photo("projects/willamette-house/main.jpg"),
       alt: "Contemporary courtyard house with river views and timber cladding",
     },
     cardImage: {
-      src: unsplash("1486406146926-c627a92ad1ab"),
+      src: photo("projects/willamette-house/main.jpg"),
       alt: "Contemporary courtyard house with river views and timber cladding",
     },
     gallery: [
-      { src: unsplash("1600607687939-ce8a6c25118c"), alt: "Interior courtyard with sliding glass doors" },
-      { src: unsplash("1497366216548-37526070297c"), alt: "Dining room with pendant lighting" },
-      { src: unsplash("1600210491892-03d54c0aaf87"), alt: "Poolside pavilion with timber screen" },
-      { src: unsplash("1531973576160-7125cd663d86"), alt: "Bathroom with stone-lined shower" },
+      { src: photo("projects/willamette-house/gallery-1.jpg"), alt: "Interior courtyard with sliding glass doors" },
+      { src: photo("projects/willamette-house/gallery-2.jpg"), alt: "Dining room with pendant lighting" },
+      { src: photo("projects/willamette-house/gallery-3.jpg"), alt: "Poolside pavilion with timber screen" },
+      { src: photo("projects/willamette-house/gallery-4.jpg"), alt: "Bathroom with stone-lined shower" },
     ],
   },
   {
@@ -169,18 +173,18 @@ export const residentialProjects: Project[] = [
       "The owners moved in during a January storm and told us afterwards they never felt the wind.",
     ],
     heroImage: {
-      src: unsplash("1449844908441-8829872d2607"),
+      src: photo("projects/skyline-modern/main.jpg"),
       alt: "Multi-level modern home built into a hillside with expansive glazing",
     },
     cardImage: {
-      src: unsplash("1449844908441-8829872d2607"),
+      src: photo("projects/skyline-modern/main.jpg"),
       alt: "Multi-level modern home built into a hillside with expansive glazing",
     },
     gallery: [
-      { src: unsplash("1503174971373-b1f69850bded"), alt: "Living space with city skyline views" },
-      { src: unsplash("1541123356219-284ebe98ae3b"), alt: "Staircase with steel and timber detailing" },
-      { src: unsplash("1503387837-b154d5074bd2"), alt: "Home office with built-in cabinetry" },
-      { src: unsplash("1441974231531-c6227db76b6e"), alt: "Rooftop terrace at dusk" },
+      { src: photo("projects/skyline-modern/gallery-1.jpg"), alt: "Living space with city skyline views" },
+      { src: photo("projects/skyline-modern/gallery-2.jpg"), alt: "Staircase with steel and timber detailing" },
+      { src: photo("projects/skyline-modern/gallery-3.jpg"), alt: "Home office with built-in cabinetry" },
+      { src: photo("projects/skyline-modern/gallery-4.jpg"), alt: "Rooftop terrace at dusk" },
     ],
   },
   {
@@ -199,18 +203,18 @@ export const residentialProjects: Project[] = [
       "Roughly sixty percent of the framing lumber on the main house was reclaimed from a decommissioned orchard outbuilding on the same lot.",
     ],
     heroImage: {
-      src: unsplash("1416331108676-a22ccb276e35"),
+      src: photo("projects/orchard-lane-residence/main.jpg"),
       alt: "Single-storey farmhouse surrounded by orchard trees",
     },
     cardImage: {
-      src: unsplash("1416331108676-a22ccb276e35"),
+      src: photo("projects/orchard-lane-residence/main.jpg"),
       alt: "Single-storey farmhouse surrounded by orchard trees",
     },
     gallery: [
-      { src: unsplash("1493809842364-78817add7ffb"), alt: "Farmhouse kitchen with open shelving" },
-      { src: unsplash("1433832597046-4f10e10ac764"), alt: "Converted barn studio interior" },
-      { src: unsplash("1465447142348-e9952c393450"), alt: "Exterior porch overlooking the orchard" },
-      { src: unsplash("1481253127861-534498168948"), alt: "Bedroom with exposed timber trusses" },
+      { src: photo("projects/orchard-lane-residence/gallery-1.jpg"), alt: "Farmhouse kitchen with open shelving" },
+      { src: photo("projects/orchard-lane-residence/gallery-2.jpg"), alt: "Converted barn studio interior" },
+      { src: photo("projects/orchard-lane-residence/gallery-3.jpg"), alt: "Exterior porch overlooking the orchard" },
+      { src: photo("projects/orchard-lane-residence/gallery-4.jpg"), alt: "Bedroom with exposed timber trusses" },
     ],
   },
 ];
@@ -232,18 +236,18 @@ export const commercialProjects: Project[] = [
       "It came in four days ahead of the revised schedule and under the contingency budget.",
     ],
     heroImage: {
-      src: unsplash("1517581177682-a085bb7ffb15"),
+      src: photo("projects/pearl-district-office/main.jpg"),
       alt: "Modern mass-timber office building exterior in an urban setting",
     },
     cardImage: {
-      src: unsplash("1517581177682-a085bb7ffb15"),
+      src: photo("projects/pearl-district-office/main.jpg"),
       alt: "Modern mass-timber office building exterior in an urban setting",
     },
     gallery: [
-      { src: unsplash("1512917774080-9991f1c4c750"), alt: "Office lobby with exposed timber columns" },
-      { src: unsplash("1523217582562-09d0def993a6"), alt: "Open-plan office floor with glazing" },
-      { src: unsplash("1580587771525-78b9dba3b914"), alt: "Rooftop terrace of office building" },
-      { src: unsplash("1519345182560-3f2917c472ef"), alt: "Stairwell with steel balustrade" },
+      { src: photo("projects/pearl-district-office/gallery-1.jpg"), alt: "Office lobby with exposed timber columns" },
+      { src: photo("projects/pearl-district-office/gallery-2.jpg"), alt: "Open-plan office floor with glazing" },
+      { src: photo("projects/pearl-district-office/gallery-3.jpg"), alt: "Rooftop terrace of office building" },
+      { src: photo("projects/pearl-district-office/gallery-4.jpg"), alt: "Stairwell with steel balustrade" },
     ],
   },
   {
@@ -262,18 +266,18 @@ export const commercialProjects: Project[] = [
       "Every weld on the retrofit is hidden behind original material — nothing about the seismic work is visible from the floor.",
     ],
     heroImage: {
-      src: unsplash("1541976590-713941681591"),
+      src: photo("projects/northbank-warehouse-conversion/main.jpg"),
       alt: "Industrial warehouse building exterior with large windows",
     },
     cardImage: {
-      src: unsplash("1541976590-713941681591"),
+      src: photo("projects/northbank-warehouse-conversion/main.jpg"),
       alt: "Industrial warehouse building exterior with large windows",
     },
     gallery: [
-      { src: unsplash("1544005313-94ddf0286df2"), alt: "Warehouse interior with exposed bowstring trusses" },
-      { src: unsplash("1552058544-f2b08422138a"), alt: "Open event space inside converted warehouse" },
-      { src: unsplash("1560250097-0b93528c311a"), alt: "Creative office space with polished concrete floors" },
-      { src: unsplash("1600566752355-35792bedcfea"), alt: "Loading dock converted into building entrance" },
+      { src: photo("projects/northbank-warehouse-conversion/gallery-1.jpg"), alt: "Warehouse interior with exposed bowstring trusses" },
+      { src: photo("projects/northbank-warehouse-conversion/gallery-2.jpg"), alt: "Open event space inside converted warehouse" },
+      { src: photo("projects/northbank-warehouse-conversion/gallery-3.jpg"), alt: "Creative office space with polished concrete floors" },
+      { src: photo("projects/northbank-warehouse-conversion/gallery-4.jpg"), alt: "Loading dock converted into building entrance" },
     ],
   },
   {
@@ -292,17 +296,17 @@ export const commercialProjects: Project[] = [
       "The pavilion hosted its first harvest dinner on schedule, four days after final inspection.",
     ],
     heroImage: {
-      src: unsplash("1600607688066-890987f18a86"),
+      src: photo("projects/riverside-hospitality-pavilion/main.jpg"),
       alt: "Timber-framed event pavilion overlooking a river valley",
     },
     cardImage: {
-      src: unsplash("1600607688066-890987f18a86"),
+      src: photo("projects/riverside-hospitality-pavilion/main.jpg"),
       alt: "Timber-framed event pavilion overlooking a river valley",
     },
     gallery: [
-      { src: unsplash("1600047509807-ba8f99d2cdde"), alt: "Interior of timber-framed pavilion set for an event" },
-      { src: unsplash("1421789665209-c9b2a435e3dc"), alt: "Commercial kitchen with stainless steel counters" },
-      { src: unsplash("1541888946425-d81bb19240f5"), alt: "Rooftop terrace overlooking the river valley at dusk" },
+      { src: photo("projects/riverside-hospitality-pavilion/gallery-1.jpg"), alt: "Interior of timber-framed pavilion set for an event" },
+      { src: photo("projects/riverside-hospitality-pavilion/gallery-2.jpg"), alt: "Commercial kitchen with stainless steel counters" },
+      { src: photo("projects/riverside-hospitality-pavilion/gallery-3.jpg"), alt: "Rooftop terrace overlooking the river valley at dusk" },
     ],
   },
   {
@@ -321,17 +325,17 @@ export const commercialProjects: Project[] = [
       "Two of the three original tenants who signed on before construction started are still in the building today.",
     ],
     heroImage: {
-      src: unsplash("1580489944761-15a19d654956"),
+      src: photo("projects/alder-street-retail/main.jpg"),
       alt: "Historic downtown retail block with restored facade",
     },
     cardImage: {
-      src: unsplash("1580489944761-15a19d654956"),
+      src: photo("projects/alder-street-retail/main.jpg"),
       alt: "Historic downtown retail block with restored facade",
     },
     gallery: [
-      { src: unsplash("1489980557514-251d61e3eeb6"), alt: "Restored retail storefront with large display windows" },
-      { src: unsplash("1615109398623-88346a601842"), alt: "Interior retail fit-out with exposed brick" },
-      { src: unsplash("1544723795-3fb6469f5b39"), alt: "Detail of restored terracotta facade ornamentation" },
+      { src: photo("projects/alder-street-retail/gallery-1.jpg"), alt: "Restored retail storefront with large display windows" },
+      { src: photo("projects/alder-street-retail/gallery-2.jpg"), alt: "Interior retail fit-out with exposed brick" },
+      { src: photo("projects/alder-street-retail/gallery-3.jpg"), alt: "Detail of restored terracotta facade ornamentation" },
     ],
   },
 ];
@@ -480,10 +484,10 @@ export const renovationProcess = [
 ];
 
 export const renovationGallery: GalleryImage[] = [
-  { src: unsplash("1600585154526-990dced4db0d"), alt: "Renovated kitchen with new cabinetry and island" },
-  { src: unsplash("1531973576160-7125cd663d86"), alt: "Renovated bathroom with stone tile and freestanding tub" },
-  { src: unsplash("1600210491892-03d54c0aaf87"), alt: "Second-storey addition under construction" },
-  { src: unsplash("1497366216548-37526070297c"), alt: "Renovated living space with restored original windows" },
+  { src: photo("renovations/1.jpg"), alt: "Renovated kitchen with new cabinetry and island" },
+  { src: photo("renovations/2.jpg"), alt: "Renovated bathroom with stone tile and freestanding tub" },
+  { src: photo("renovations/3.jpg"), alt: "Second-storey addition under construction" },
+  { src: photo("renovations/4.jpg"), alt: "Renovated living space with restored original windows" },
 ];
 
 // ---------------------------------------------------------------------------
