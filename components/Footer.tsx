@@ -11,13 +11,13 @@ export default function Footer() {
         <div className="grid gap-12 lg:grid-cols-[2fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-4">
-              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full">
+              <div className="relative h-20 w-[82px] shrink-0 overflow-hidden rounded-md">
                 <Image
-                  src="/logo/mhm-badge-logo.jpg"
-                  alt="MHM Custom Home Builders"
+                  src="/logo/mhm-system-logo.jpg"
+                  alt="MHM System — Construction, Engineering, Solutions"
                   fill
-                  sizes="64px"
-                  className="object-cover"
+                  sizes="82px"
+                  className="object-contain"
                 />
               </div>
               <div>

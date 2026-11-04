@@ -50,15 +50,14 @@ Key exports in `lib/data.ts`:
 
 ## Logo
 
-The current logo is the circular chrome badge at `public/logo/mhm-badge-logo.jpg`,
-used in the Header, Footer, Open Graph image, and browser favicon
-(`app/icon.jpg`). It's a raster JPG with a self-contained circular design, so
-it's cropped to a circle on-page via CSS (`object-cover` + `rounded-full`)
-rather than needing separate light/dark variants — unlike the flat SVG
-wordmark it replaced, its dark background reads fine over both the
+The current logo is the MHM System emblem ("Construction | Engineering |
+Solutions") at `public/logo/mhm-system-logo.jpg`, used in the Header, Footer
+and Open Graph image. Browser icons are generated from it: `app/icon.jpg`
+(full logo, square) and `app/favicon.ico` (house + "MHM" only, so it stays
+legible at 16–32px). Its black background reads fine over both the
 transparent (over-hero) and solid header states without color-swapping.
 
-Earlier flat SVG lockups (`mhm-logo-primary.svg`, `mhm-logo-horizontal.svg`,
+The previous circular badge (`mhm-badge-logo.jpg`) and earlier flat SVG lockups (`mhm-logo-primary.svg`, `mhm-logo-horizontal.svg`,
 `mhm-logo-horizontal-clean.svg`, `mhm-logo-dark.svg`) are still in
 `public/logo/` for reference but are no longer used anywhere on the site.
 

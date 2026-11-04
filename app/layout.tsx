@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    images: [{ url: "/logo/mhm-badge-logo.jpg" }],
+    images: [{ url: "/logo/mhm-system-logo.jpg" }],
     locale: "en_US",
     type: "website",
   },

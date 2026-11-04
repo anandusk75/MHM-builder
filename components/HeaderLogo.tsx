@@ -1,20 +1,20 @@
 import Image from "next/image";
 
 /**
- * The badge is a self-contained circular emblem with its own dark
- * background, so unlike the previous wordmark it doesn't need to swap
- * colors between the transparent (over-hero) and solid header states.
+ * The MHM System logo is a self-contained emblem on its own black
+ * background, so it doesn't need to swap colors between the transparent
+ * (over-hero) and solid header states.
  */
 export default function HeaderLogo() {
   return (
-    <div className="relative h-12 w-12 overflow-hidden rounded-full sm:h-14 sm:w-14">
+    <div className="relative h-14 w-[58px] overflow-hidden rounded-md sm:h-16 sm:w-[66px]">
       <Image
-        src="/logo/mhm-badge-logo.jpg"
-        alt="MHM Custom Home Builders"
+        src="/logo/mhm-system-logo.jpg"
+        alt="MHM System — Construction, Engineering, Solutions"
         fill
-        sizes="56px"
+        sizes="66px"
         priority
-        className="object-cover"
+        className="object-contain"
       />
     </div>
   );
