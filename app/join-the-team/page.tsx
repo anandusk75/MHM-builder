@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: `Careers at ${siteConfig.name} — join a crew building residential and commercial projects ${siteConfig.serviceArea}.`,
 };
 
-const heroImage = residentialProjects[2].heroImage;
+const heroImage = residentialProjects[1].gallery[2];
 
 export default function JoinTheTeamPage() {
   return (
@@ -46,7 +46,11 @@ export default function JoinTheTeamPage() {
 
       <section className="mx-auto max-w-3xl px-6 pb-24 sm:pb-32 lg:px-10">
         <Reveal>
-          <ContactForm projectTypeLabel="Position of Interest" projectTypeOptions={careerOptions} />
+          <ContactForm
+            projectTypeLabel="Position of Interest"
+            projectTypeOptions={careerOptions}
+            subject="New job enquiry from the website"
+          />
         </Reveal>
       </section>
     </>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: `Ground-up construction, adaptive reuse, and tenant build-outs delivered by ${siteConfig.name} ${siteConfig.serviceArea}.`,
 };
 
-const heroImage = commercialProjects[0].heroImage;
+const heroImage = commercialProjects[1].heroImage;
 
 export default function CommercialPage() {
   return (

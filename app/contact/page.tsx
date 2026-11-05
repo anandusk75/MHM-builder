@@ -3,14 +3,14 @@ import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
-import { siteConfig, projectTypeOptions, commercialProjects } from "@/lib/data";
+import { siteConfig, projectTypeOptions, residentialProjects } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Contact",
   description: `Get in touch with ${siteConfig.name} about a residential or commercial project ${siteConfig.serviceArea}.`,
 };
 
-const heroImage = commercialProjects[3].heroImage;
+const heroImage = residentialProjects[8].heroImage;
 
 export default function ContactPage() {
   return (

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: `The story, values, and people behind ${siteConfig.name}, headquartered in ${siteConfig.region}.`,
 };
 
-const heroImage = residentialProjects[3].heroImage;
+const heroImage = residentialProjects[1].gallery[4];
 const yearsInBusiness = new Date().getFullYear() - siteConfig.foundedYear;
 
 export default function AboutPage() {

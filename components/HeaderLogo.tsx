@@ -1,18 +1,18 @@
 import Image from "next/image";
 
 /**
- * The MHM System logo is a self-contained emblem on its own black
+ * The MHM System logo is a self-contained emblem on a transparent
  * background, so it doesn't need to swap colors between the transparent
  * (over-hero) and solid header states.
  */
 export default function HeaderLogo() {
   return (
-    <div className="relative h-14 w-[58px] overflow-hidden rounded-md sm:h-16 sm:w-[66px]">
+    <div className="relative h-14 w-[87px] sm:h-16 sm:w-[99px]">
       <Image
-        src="/logo/mhm-system-logo.jpg"
+        src="/logo/mhm-system-logo.png"
         alt="MHM System — Construction, Engineering, Solutions"
         fill
-        sizes="66px"
+        sizes="99px"
         priority
         className="object-contain"
       />

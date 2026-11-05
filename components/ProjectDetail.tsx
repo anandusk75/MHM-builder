@@ -15,11 +15,25 @@ const categoryLabel: Record<Project["category"], string> = {
 };
 
 export default function ProjectDetail({ project, nextProject }: ProjectDetailProps) {
+  // Only show the details that have been filled in for this project.
+  const allDetails: [string, string | undefined][] = [
+    ["Location", project.location],
+    ["Status", project.status],
+    ["Duration", project.duration],
+    ["Architect", project.architect],
+    ["Year", project.year],
+  ];
+  const details = allDetails.filter((entry): entry is [string, string] => Boolean(entry[1]));
+
   return (
     <>
       <Hero
         image={project.heroImage}
-        eyebrow={`${categoryLabel[project.category]} — ${project.location}`}
+        eyebrow={
+          project.location
+            ? `${categoryLabel[project.category]} — ${project.location}`
+            : categoryLabel[project.category]
+        }
         title={project.title}
         height="large"
       />
@@ -36,22 +50,12 @@ export default function ProjectDetail({ project, nextProject }: ProjectDetailPro
 
           <Reveal delay={0.1}>
             <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-t border-line pt-8">
-              <div>
-                <dt className="text-xs uppercase tracking-widest text-muted">Location</dt>
-                <dd className="mt-2 text-ink">{project.location}</dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-widest text-muted">Duration</dt>
-                <dd className="mt-2 text-ink">{project.duration}</dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-widest text-muted">Architect</dt>
-                <dd className="mt-2 text-ink">{project.architect}</dd>
-              </div>
-              <div>
-                <dt className="text-xs uppercase tracking-widest text-muted">Year</dt>
-                <dd className="mt-2 text-ink">{project.year}</dd>
-              </div>
+              {details.map(([label, value]) => (
+                <div key={label}>
+                  <dt className="text-xs uppercase tracking-widest text-muted">{label}</dt>
+                  <dd className="mt-2 text-ink">{value}</dd>
+                </div>
+              ))}
               <div className="col-span-2">
                 <dt className="text-xs uppercase tracking-widest text-muted">Scope</dt>
                 <dd className="mt-2 flex flex-wrap gap-2">

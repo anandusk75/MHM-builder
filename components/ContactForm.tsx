@@ -5,7 +5,13 @@ import { useId, useState, type FormEvent } from "react";
 interface ContactFormProps {
   projectTypeLabel?: string;
   projectTypeOptions: string[];
+  /** Subject line of the email you receive, so contact and careers messages are easy to tell apart. */
+  subject?: string;
 }
+
+// Web3Forms access keys are designed to be public (they only allow sending to the
+// email address the key was created for), so it's fine to expose this to the browser.
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 interface FormErrors {
   name?: string;
@@ -21,6 +27,7 @@ const PHONE_PATTERN = /^[0-9+()\-.\s]{7,}$/;
 export default function ContactForm({
   projectTypeLabel = "Project Type",
   projectTypeOptions,
+  subject = "New message from the website contact form",
 }: ContactFormProps) {
   const formId = useId();
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
@@ -54,21 +61,34 @@ export default function ContactForm({
 
     if (Object.keys(validationErrors).length > 0) return;
 
+    // Honeypot: real visitors never see or tick this box, spam bots usually do.
+    if (data.get("botcheck")) return;
+
+    if (!WEB3FORMS_ACCESS_KEY) {
+      console.error("NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set — the contact form cannot send.");
+      setStatus("error");
+      return;
+    }
+
     setStatus("submitting");
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject,
+          from_name: "MHM Website",
           name: data.get("name"),
           email: data.get("email"),
-          phone: data.get("phone"),
-          projectType: data.get("projectType"),
+          phone: data.get("phone") || "—",
+          [projectTypeLabel]: data.get("projectType"),
           message: data.get("message"),
         }),
       });
 
-      if (!response.ok) throw new Error("Request failed");
+      const result = await response.json().catch(() => null);
+      if (!response.ok || !result?.success) throw new Error(result?.message ?? "Request failed");
 
       setStatus("success");
       form.reset();
@@ -98,6 +118,7 @@ export default function ContactForm({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-6">
+      <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor={`${formId}-name`} className="text-xs font-medium uppercase tracking-widest text-muted">

@@ -12,8 +12,6 @@ import {
   featuredProjectSlug,
   featuredProjectCategory,
   homeTestimonial,
-  residentialProjects,
-  commercialProjects,
 } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -26,11 +24,16 @@ const homeHeroImage = {
   alt: "Upward view of a modern glass and steel building against a clear sky",
 };
 
+const addition = getProjectBySlug("residential", "two-storey-home-addition")!;
+const deck = getProjectBySlug("residential", "modern-deck-cable-railing")!;
+const intiPeru = getProjectBySlug("commercial", "inti-peru-village")!;
+const facade = getProjectBySlug("commercial", "commercial-facade-renovation")!;
+
 const gridImages = [
-  { image: residentialProjects[1].gallery[0], href: `/residential/${residentialProjects[1].slug}` },
-  { image: commercialProjects[0].gallery[0], href: `/commercial/${commercialProjects[0].slug}` },
-  { image: residentialProjects[2].gallery[1], href: `/residential/${residentialProjects[2].slug}` },
-  { image: { src: commercialProjects[1].cardImage.src, alt: commercialProjects[1].cardImage.alt }, href: "/about" },
+  { image: addition.cardImage, href: `/residential/${addition.slug}` },
+  { image: deck.gallery[1], href: `/residential/${deck.slug}` },
+  { image: intiPeru.gallery[0], href: `/commercial/${intiPeru.slug}` },
+  { image: facade.heroImage, href: `/commercial/${facade.slug}` },
 ];
 
 export default function HomePage() {

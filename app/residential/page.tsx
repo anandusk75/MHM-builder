@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: `Custom homes and residential renovations built by ${siteConfig.name} ${siteConfig.serviceArea}.`,
 };
 
-const heroImage = residentialProjects[2].heroImage;
+const heroImage = residentialProjects[0].heroImage;
 
 export default function ResidentialPage() {
   return (

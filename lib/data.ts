@@ -84,10 +84,13 @@ export interface Project {
   slug: string;
   category: ProjectCategory;
   title: string;
-  location: string;
-  year: string;
-  duration: string;
-  architect: string;
+  // Optional details — only the ones that are filled in are shown on the
+  // project page. TODO: add location / year / duration for each job.
+  location?: string;
+  year?: string;
+  duration?: string;
+  architect?: string;
+  status?: string;
   scope: string[];
   summary: string;
   description: string[];
@@ -96,247 +99,297 @@ export interface Project {
   gallery: GalleryImage[];
 }
 
+/** Builds the hero / card / gallery image set for a project folder. */
+function projectImages(slug: string, heroAlt: string, cardAlt: string, galleryAlts: string[]) {
+  const dir = `projects/${slug}`;
+  return {
+    heroImage: { src: photo(`${dir}/hero.jpg`), alt: heroAlt },
+    cardImage: { src: photo(`${dir}/card.jpg`), alt: cardAlt },
+    gallery: galleryAlts.map((alt, i) => ({
+      src: photo(`${dir}/${String(i + 1).padStart(2, "0")}.jpg`),
+      alt,
+    })),
+  };
+}
+
 export const residentialProjects: Project[] = [
   {
-    slug: "cedar-ridge-residence",
+    slug: "grand-double-staircase",
     category: "residential",
-    title: "Cedar Ridge Residence",
-    location: "Portland, Oregon",
-    year: "2023",
-    duration: "14 months",
-    architect: "Holt & Munro Architecture",
-    scope: ["New build", "Custom millwork", "Landscape hardscape"],
+    title: "Grand Double Staircase",
+    scope: ["Curved stairs", "Custom ironwork", "Balcony railing"],
     summary:
-      "A four-bedroom hillside home built around a cantilevered great room and a wall of glass facing the Tualatin Valley.",
+      "Twin curved staircases rising to a shared balcony, wrapped in a custom black-iron balustrade.",
     description: [
-      "Cedar Ridge Residence sits on a steep, heavily treed lot that ruled out a conventional foundation. Our crew worked with the structural engineer through three rounds of pier-and-grade-beam design before pouring a single yard of concrete.",
-      "The result is a home that reads as effortless from the street and complex only when you understand what it took to keep the cantilever level through two Oregon winters.",
+      "The centerpiece of this home's double-height foyer is a pair of sweeping curved staircases that meet at a bridge balcony. Each stringer was laid out to follow the curve of the walls, so the treads stay even from the first step to the last.",
+      "The balustrade is a custom arched pattern in matte black steel, run continuously along both flights and across the balcony so the whole entry reads as one piece of work.",
     ],
-    heroImage: {
-      src: photo("projects/cedar-ridge-residence/main.jpg"),
-      alt: "Modern cedar-clad hillside residence with large glass windows at dusk",
-    },
-    cardImage: {
-      src: photo("projects/cedar-ridge-residence/main.jpg"),
-      alt: "Modern cedar-clad hillside residence with large glass windows at dusk",
-    },
-    gallery: [
-      { src: photo("projects/cedar-ridge-residence/gallery-1.jpg"), alt: "Open-plan living room with exposed timber ceiling" },
-      { src: photo("projects/cedar-ridge-residence/gallery-2.jpg"), alt: "Kitchen with waterfall stone island" },
-      { src: photo("projects/cedar-ridge-residence/gallery-3.jpg"), alt: "Primary bedroom with floor-to-ceiling windows" },
-      { src: photo("projects/cedar-ridge-residence/gallery-4.jpg"), alt: "Exterior deck detail with steel railing" },
-    ],
+    ...projectImages(
+      "grand-double-staircase",
+      "Twin curved staircases with black ornamental iron railings meeting at a balcony",
+      "Curved staircase with a black ornamental iron railing in a bright foyer",
+      [
+        "Twin curved staircases with black iron railings in a double-height foyer",
+        "Curved staircase with arched black iron balustrade and balcony railing",
+      ],
+    ),
   },
   {
-    slug: "willamette-house",
+    slug: "two-storey-home-addition",
     category: "residential",
-    title: "The Willamette House",
-    location: "West Linn, Oregon",
-    year: "2022",
-    duration: "11 months",
-    architect: "Fenwick Design Studio",
-    scope: ["New build", "Interior joinery", "Pool & pavilion"],
+    title: "Two-Storey Home Addition",
+    scope: ["Foundation", "Framing & sheathing", "Roofing & skylights", "Landscape steps"],
     summary:
-      "A riverside family home organized around a central courtyard that pulls light into every room on the ground floor.",
+      "A full two-storey addition built off the side of an existing home, from footings to weather-tight shell.",
     description: [
-      "The brief asked for a house that felt like one continuous space even with five bedrooms on the plan. We built the courtyard glazing as a single structural steel frame, fabricated off-site in three sections to hold tolerances tight enough for the sliding doors to disappear into the walls.",
-      "Eighteen months on, the client's only request for the next project is 'more of that.'",
+      "This addition started with excavation, formed footings and a stone base tied into the existing house. From there our crew framed and sheathed two full storeys, set the roof structure and flashed new skylights into the shingle roof.",
+      "With the shell wrapped and windows installed, we finished the outside with pressure-treated timber steps and planters that step down the yard to the existing deck.",
     ],
-    heroImage: {
-      src: photo("projects/willamette-house/main.jpg"),
-      alt: "Contemporary courtyard house with river views and timber cladding",
-    },
-    cardImage: {
-      src: photo("projects/willamette-house/main.jpg"),
-      alt: "Contemporary courtyard house with river views and timber cladding",
-    },
-    gallery: [
-      { src: photo("projects/willamette-house/gallery-1.jpg"), alt: "Interior courtyard with sliding glass doors" },
-      { src: photo("projects/willamette-house/gallery-2.jpg"), alt: "Dining room with pendant lighting" },
-      { src: photo("projects/willamette-house/gallery-3.jpg"), alt: "Poolside pavilion with timber screen" },
-      { src: photo("projects/willamette-house/gallery-4.jpg"), alt: "Bathroom with stone-lined shower" },
-    ],
+    ...projectImages(
+      "two-storey-home-addition",
+      "Crew on ladders framing a two-storey addition beside a brick chimney",
+      "Two-storey addition wrapped in house wrap with new windows and skylight",
+      [
+        "Formwork and stone base for the addition's foundation",
+        "Crew member setting forms for the addition footings",
+        "Crew sheathing the second storey of the addition",
+        "Sheathed two-storey addition with a ladder against the wall",
+        "Three crew members working on the addition's sheathing",
+        "Corner of the sheathed addition with window and door openings",
+        "Roofer flashing a new skylight into the shingle roof",
+        "Pressure-treated timber steps and planters stepping down the yard",
+        "Finished addition shell in house wrap with new windows",
+      ],
+    ),
   },
   {
-    slug: "skyline-modern",
+    slug: "modern-deck-cable-railing",
     category: "residential",
-    title: "Skyline Modern",
-    location: "Portland, Oregon",
-    year: "2021",
-    duration: "16 months",
-    architect: "Brandt Weiss Architects",
-    scope: ["New build", "Structural steel", "Smart-home integration"],
+    title: "Modern Deck & Cable Railing",
+    scope: ["Composite decking", "Cable railing", "Entry stairs"],
     summary:
-      "A three-level home stepped into a west hills slope, engineered around a full-height steel moment frame.",
+      "A wraparound composite deck with black posts and stainless cable infill that keeps the view open.",
     description: [
-      "Skyline Modern demanded a structural approach more common in mid-rise commercial work than single-family homes. We brought our commercial steel-erection crew onto a residential job for the first time to get the moment frame plumb within an eighth of an inch across three storeys.",
-      "The owners moved in during a January storm and told us afterwards they never felt the wind.",
+      "The owners wanted a deck that matched the clean lines of the house without boxing in the windows. We built it in charcoal composite decking with matching fascia, then ran black square posts with stainless-steel cables between them.",
+      "The same railing continues down the entry stairs, with each cable set to follow the angle of the stair.",
     ],
-    heroImage: {
-      src: photo("projects/skyline-modern/main.jpg"),
-      alt: "Multi-level modern home built into a hillside with expansive glazing",
-    },
-    cardImage: {
-      src: photo("projects/skyline-modern/main.jpg"),
-      alt: "Multi-level modern home built into a hillside with expansive glazing",
-    },
-    gallery: [
-      { src: photo("projects/skyline-modern/gallery-1.jpg"), alt: "Living space with city skyline views" },
-      { src: photo("projects/skyline-modern/gallery-2.jpg"), alt: "Staircase with steel and timber detailing" },
-      { src: photo("projects/skyline-modern/gallery-3.jpg"), alt: "Home office with built-in cabinetry" },
-      { src: photo("projects/skyline-modern/gallery-4.jpg"), alt: "Rooftop terrace at dusk" },
-    ],
+    ...projectImages(
+      "modern-deck-cable-railing",
+      "Composite deck with black posts and stainless cable railing along a modern home",
+      "Entry stairs with black posts and angled stainless cable railing",
+      [
+        "Wraparound composite deck with black posts and cable railing",
+        "Cable railing running the length of the deck beside large windows",
+        "Entry stairs with an angled cable railing",
+      ],
+    ),
   },
   {
-    slug: "orchard-lane-residence",
+    slug: "floating-staircase",
     category: "residential",
-    title: "Orchard Lane Residence",
-    location: "Hood River, Oregon",
-    year: "2020",
-    duration: "9 months",
-    architect: "In-house design",
-    scope: ["New build", "Barn conversion", "Solar array"],
+    title: "Open-Riser Floating Staircase",
+    scope: ["Steel stringer", "Timber treads", "Loft railing"],
     summary:
-      "A single-storey farmhouse and converted barn studio for a client relocating from the city to five acres of orchard.",
+      "A steel-stringer staircase with open timber treads, climbing to a loft lined with matching railing.",
     description: [
-      "The existing barn on the property was structurally sound but had been used for equipment storage for forty years. Rather than demolish it, we stripped it to the frame, sistered the posts that needed it, and turned it into a detached studio that now gets more use than the house.",
-      "Roughly sixty percent of the framing lumber on the main house was reclaimed from a decommissioned orchard outbuilding on the same lot.",
+      "This staircase runs on a single black steel stringer, fabricated and set first so the open treads could be fixed to it one by one. Leaving out the risers keeps the room bright and lets light pass straight through.",
+      "The slim black balustrade continues around the loft edge, tying the stair to the exposed timber beams overhead.",
     ],
-    heroImage: {
-      src: photo("projects/orchard-lane-residence/main.jpg"),
-      alt: "Single-storey farmhouse surrounded by orchard trees",
-    },
-    cardImage: {
-      src: photo("projects/orchard-lane-residence/main.jpg"),
-      alt: "Single-storey farmhouse surrounded by orchard trees",
-    },
-    gallery: [
-      { src: photo("projects/orchard-lane-residence/gallery-1.jpg"), alt: "Farmhouse kitchen with open shelving" },
-      { src: photo("projects/orchard-lane-residence/gallery-2.jpg"), alt: "Converted barn studio interior" },
-      { src: photo("projects/orchard-lane-residence/gallery-3.jpg"), alt: "Exterior porch overlooking the orchard" },
-      { src: photo("projects/orchard-lane-residence/gallery-4.jpg"), alt: "Bedroom with exposed timber trusses" },
+    ...projectImages(
+      "floating-staircase",
+      "Loft with black steel railing above an open-riser staircase",
+      "Open-riser staircase with timber treads and black steel railing",
+      [
+        "Open-riser staircase with timber treads and black steel railing",
+        "Floating staircase rising beside a tall window",
+        "Staircase and loft railing under exposed timber beams",
+        "Crew installing the loft railing",
+        "Steel stringer and treads set before the timber was installed",
+      ],
+    ),
+  },
+  {
+    slug: "new-townhome-development",
+    category: "residential",
+    title: "New Townhome Development",
+    scope: ["New build", "Framing", "Exterior finishes"],
+    summary:
+      "Ground-up townhomes with attached garages and stone-accent fronts, built from foundation to finish.",
+    description: [
+      "Starting from a cleared, graded lot, our crew set the block foundations and framed each townhome with a telehandler lifting wall panels into place.",
+      "The finished homes pair gray siding with a stacked-stone gable, arched upper windows and attached two-car garages.",
     ],
+    ...projectImages(
+      "new-townhome-development",
+      "New townhomes with stone gable fronts and attached garages",
+      "Telehandler lifting wall framing on a new townhome build",
+      [
+        "Telehandler setting wall framing on the new foundation",
+        "Wall framing going up beside a finished townhome",
+        "Completed townhome fronts with garages and stone accents",
+      ],
+    ),
+  },
+  {
+    slug: "front-entry-railings",
+    category: "residential",
+    title: "Front Entry Steps & Railings",
+    scope: ["Stair refinishing", "Steel railings", "Painting"],
+    summary:
+      "Refinished entry steps and new black steel railings that make a front entrance safer and sharper.",
+    description: [
+      "We resurfaced the concrete entry stairs and landing, then installed new black steel railings along both flights and around the porch.",
+      "Every railing is anchored into the stairs and finished on site so the coating stays even right down to the posts.",
+    ],
+    ...projectImages(
+      "front-entry-railings",
+      "Crew member finishing black steel railings on white entry stairs",
+      "Black steel railings on refinished white entry stairs",
+      [
+        "Black steel railings on refinished white entry stairs",
+        "Crew installing new railings at a brick home's front entry",
+        "Black steel handrails and safety-striped steps at a storefront entry",
+      ],
+    ),
+  },
+  {
+    slug: "custom-entry-doors",
+    category: "residential",
+    title: "Custom Entry Doors",
+    scope: ["Stainless steel doors", "Ornamental ironwork", "Installation"],
+    summary:
+      "Stainless-steel security doors and ornamental metal doors, fitted to existing brick openings.",
+    description: [
+      "Each of these doors was sized to an existing masonry opening. Stainless-steel security doors get decorative grillework over the glass, so they're strong without looking heavy.",
+      "For clients who wanted something warmer, we supplied and hung embossed copper-finish and scrollwork doors.",
+    ],
+    ...projectImages(
+      "custom-entry-doors",
+      "Stainless steel security door with decorative grille in a brick entry",
+      "Ornamental scrollwork entry door in a brick wall",
+      [
+        "Ornamental scrollwork door over glass in a brick entry",
+        "Stainless steel security door with decorative grilles behind a stainless railing",
+        "Stainless steel door with grillework between black stair railings",
+        "Embossed copper-finish door before installation",
+      ],
+    ),
+  },
+  {
+    slug: "wrought-iron-gates",
+    category: "residential",
+    title: "Wrought-Iron Gates",
+    scope: ["Driveway gates", "Garden gates", "Ornamental ironwork"],
+    summary:
+      "Driveway and garden gates in scrolled wrought iron, built to fit the property they guard.",
+    description: [
+      "From a wide double driveway gate with an arched crown to a garden gate set between brick piers, each gate is laid out to suit its opening and hung to swing true.",
+      "Scrollwork panels and decorative crests are finished in black for a clean, lasting look.",
+    ],
+    ...projectImages(
+      "wrought-iron-gates",
+      "Arched wrought-iron garden gate between brick piers",
+      "Ornamental wrought-iron gate with scrollwork panels",
+      [
+        "Double wrought-iron driveway gate with an arched crown",
+        "Arched wrought-iron garden gate between brick piers",
+        "Ornamental wrought-iron gate with scrollwork and a decorative crest",
+      ],
+    ),
+  },
+  {
+    slug: "stucco-exterior-refresh",
+    category: "residential",
+    title: "Stucco Exterior Refresh",
+    scope: ["Stucco", "Trim & moldings", "Exterior painting"],
+    summary:
+      "A three-storey home refinished in gray stucco with bold dark trim around every window.",
+    description: [
+      "This home's exterior was refinished in a textured gray stucco, with raised moldings framing each window and a quoined corner running up the full height of the house.",
+      "The darker trim color gives the facade depth and pulls the whole elevation together.",
+    ],
+    ...projectImages(
+      "stucco-exterior-refresh",
+      "Three-storey home with gray stucco and dark window trim at dusk",
+      "Gray stucco home with dark trim and red roses in front",
+      ["Three-storey home with gray stucco and dark window trim at dusk"],
+    ),
   },
 ];
 
 export const commercialProjects: Project[] = [
   {
-    slug: "pearl-district-office",
+    slug: "inti-peru-village",
     category: "commercial",
-    title: "Pearl District Office Building",
-    location: "Portland, Oregon",
-    year: "2023",
-    duration: "18 months",
-    architect: "Corrigan Bloom Partners",
-    scope: ["Ground-up construction", "Curtain wall", "Core & shell"],
+    title: "Inti Perú Village",
+    location: "Bear Creek Township, PA",
+    status: "Planned — Phases A, B & C",
+    scope: ["24 apartments", "Office", "Restaurant", "Site development"],
     summary:
-      "A five-storey mass-timber office building delivered on a tight urban infill site with zero lay-down space.",
+      "A planned ten-acre community with 24 apartments, the MHM office and the Inti Perú restaurant.",
     description: [
-      "With no room on site to stage materials, we sequenced deliveries to the hour for fourteen months straight. The mass-timber structure arrived pre-cut from the fabricator and was closed in before the first rain of the season, a schedule the developer's insurer had called 'optimistic.'",
-      "It came in four days ahead of the revised schedule and under the contingency budget.",
+      "Inti Perú Village is a planned community of about ten acres on Route 115 in Bear Creek Township, Pennsylvania. Phase A is 12 two-storey apartments with three bedrooms and one and a half baths. Phase B is 12 single-level apartments with two bedrooms and one bath. Every apartment has its own private garage.",
+      "Phase C brings the new MHM GC Builder office and the Inti Perú chicken-and-grill restaurant, with outdoor dining under a pergola. Throughout, the buildings share a modern cabin style: maple-natural siding, metal roofs, landscaped green space, walking paths and visitor parking.",
     ],
-    heroImage: {
-      src: photo("projects/pearl-district-office/main.jpg"),
-      alt: "Modern mass-timber office building exterior in an urban setting",
-    },
-    cardImage: {
-      src: photo("projects/pearl-district-office/main.jpg"),
-      alt: "Modern mass-timber office building exterior in an urban setting",
-    },
-    gallery: [
-      { src: photo("projects/pearl-district-office/gallery-1.jpg"), alt: "Office lobby with exposed timber columns" },
-      { src: photo("projects/pearl-district-office/gallery-2.jpg"), alt: "Open-plan office floor with glazing" },
-      { src: photo("projects/pearl-district-office/gallery-3.jpg"), alt: "Rooftop terrace of office building" },
-      { src: photo("projects/pearl-district-office/gallery-4.jpg"), alt: "Stairwell with steel balustrade" },
-    ],
+    ...projectImages(
+      "inti-peru-village",
+      "Rendering of the two-storey Phase A apartment building at Inti Perú Village",
+      "Aerial rendering of the Inti Perú Village site plan",
+      [
+        "Rendering of the Phase A two-storey apartments with private garages",
+        "Rendering of the Phase B single-level apartments",
+        "Rendering of the MHM GC Builder office and Inti Perú restaurant",
+        "Inti Perú Village site plan showing Phases A, B and C",
+        "Phase A building overview with floor plans and features",
+        "Phase B building overview with floor plan and features",
+        "Phase C office and restaurant overview with floor plans",
+      ],
+    ),
   },
   {
-    slug: "northbank-warehouse-conversion",
+    slug: "commercial-facade-renovation",
     category: "commercial",
-    title: "Northbank Warehouse Conversion",
-    location: "Portland, Oregon",
-    year: "2022",
-    duration: "12 months",
-    architect: "Fenwick Design Studio",
-    scope: ["Adaptive reuse", "Seismic retrofit", "Tenant build-out"],
+    title: "Commercial Facade Renovation",
+    scope: ["Facade renovation", "Storefront", "Exterior lighting", "Planters"],
     summary:
-      "A 1940s cold-storage warehouse converted into creative office and event space while preserving its original bowstring trusses.",
+      "A single-storey commercial building refaced in smooth stucco with built-in planters and new lighting.",
     description: [
-      "The building's timber bowstring trusses were the whole reason the client bought it, and the whole reason the seismic engineer lost sleep over it. We designed and installed a steel moment-frame retrofit that meets current code without touching a single visible truss.",
-      "Every weld on the retrofit is hidden behind original material — nothing about the seismic work is visible from the floor.",
+      "We refinished this commercial frontage in smooth stucco, added built-in planter boxes between the piers and lit the walkway with recessed and wall-mounted fixtures.",
+      "The next phase adds warm timber slat cladding above the entry canopy and along the fascia, shown in the concept rendering.",
     ],
-    heroImage: {
-      src: photo("projects/northbank-warehouse-conversion/main.jpg"),
-      alt: "Industrial warehouse building exterior with large windows",
-    },
-    cardImage: {
-      src: photo("projects/northbank-warehouse-conversion/main.jpg"),
-      alt: "Industrial warehouse building exterior with large windows",
-    },
-    gallery: [
-      { src: photo("projects/northbank-warehouse-conversion/gallery-1.jpg"), alt: "Warehouse interior with exposed bowstring trusses" },
-      { src: photo("projects/northbank-warehouse-conversion/gallery-2.jpg"), alt: "Open event space inside converted warehouse" },
-      { src: photo("projects/northbank-warehouse-conversion/gallery-3.jpg"), alt: "Creative office space with polished concrete floors" },
-      { src: photo("projects/northbank-warehouse-conversion/gallery-4.jpg"), alt: "Loading dock converted into building entrance" },
-    ],
+    ...projectImages(
+      "commercial-facade-renovation",
+      "Stucco commercial building frontage with glass entry doors and lit planters",
+      "Commercial entry with glass doors, potted olive trees and stucco piers",
+      [
+        "Stucco commercial building frontage with glass entry doors and lit planters",
+        "Concept rendering of the facade with timber slat cladding",
+      ],
+    ),
   },
   {
-    slug: "riverside-hospitality-pavilion",
+    slug: "structural-steel-and-stairs",
     category: "commercial",
-    title: "Riverside Hospitality Pavilion",
-    location: "Hood River, Oregon",
-    year: "2021",
-    duration: "10 months",
-    architect: "Brandt Weiss Architects",
-    scope: ["New build", "Timber frame", "Commercial kitchen fit-out"],
+    title: "Structural Steel & Stairs",
+    scope: ["Structural steel", "Steel erection", "Fabricated stairs"],
     summary:
-      "A post-and-beam event pavilion and restaurant kitchen built for a riverside winery on a compressed pre-harvest schedule.",
+      "Steel beam erection for a masonry building, plus fabricated steel exit and access stairs.",
     description: [
-      "The client needed a working commercial kitchen and 2,400 square feet of event space ready before that year's harvest — a six-month window from permit to occupancy. We ran the timber frame and kitchen build-out crews in parallel rather than in sequence to hit the date.",
-      "The pavilion hosted its first harvest dinner on schedule, four days after final inspection.",
+      "Working from scaffolding along the block walls, our crew set and connected the structural steel beams that carry the building's upper floors and roof.",
+      "We also fabricate and install steel stairs, from painted exterior exit stairs to diamond-plate access stairs.",
     ],
-    heroImage: {
-      src: photo("projects/riverside-hospitality-pavilion/main.jpg"),
-      alt: "Timber-framed event pavilion overlooking a river valley",
-    },
-    cardImage: {
-      src: photo("projects/riverside-hospitality-pavilion/main.jpg"),
-      alt: "Timber-framed event pavilion overlooking a river valley",
-    },
-    gallery: [
-      { src: photo("projects/riverside-hospitality-pavilion/gallery-1.jpg"), alt: "Interior of timber-framed pavilion set for an event" },
-      { src: photo("projects/riverside-hospitality-pavilion/gallery-2.jpg"), alt: "Commercial kitchen with stainless steel counters" },
-      { src: photo("projects/riverside-hospitality-pavilion/gallery-3.jpg"), alt: "Rooftop terrace overlooking the river valley at dusk" },
-    ],
-  },
-  {
-    slug: "alder-street-retail",
-    category: "commercial",
-    title: "Alder Street Retail Block",
-    location: "Portland, Oregon",
-    year: "2020",
-    duration: "8 months",
-    architect: "Corrigan Bloom Partners",
-    scope: ["Tenant improvement", "Facade restoration", "ADA upgrade"],
-    summary:
-      "Facade restoration and full tenant build-out across three ground-floor retail spaces in a historic downtown block.",
-    description: [
-      "The 1920s terracotta facade had been painted over and partially covered by decades of signage. We uncovered, cleaned, and repaired the original ornamentation while bringing the building up to current ADA and seismic standards behind it.",
-      "Two of the three original tenants who signed on before construction started are still in the building today.",
-    ],
-    heroImage: {
-      src: photo("projects/alder-street-retail/main.jpg"),
-      alt: "Historic downtown retail block with restored facade",
-    },
-    cardImage: {
-      src: photo("projects/alder-street-retail/main.jpg"),
-      alt: "Historic downtown retail block with restored facade",
-    },
-    gallery: [
-      { src: photo("projects/alder-street-retail/gallery-1.jpg"), alt: "Restored retail storefront with large display windows" },
-      { src: photo("projects/alder-street-retail/gallery-2.jpg"), alt: "Interior retail fit-out with exposed brick" },
-      { src: photo("projects/alder-street-retail/gallery-3.jpg"), alt: "Detail of restored terracotta facade ornamentation" },
-    ],
+    ...projectImages(
+      "structural-steel-and-stairs",
+      "Structural steel beams set across a masonry building against a blue sky",
+      "Ironworker setting steel beams from scaffolding",
+      [
+        "Scaffolding and steel beams along the building's block wall",
+        "Structural steel beams spanning the building",
+        "Ironworker setting steel beams from scaffolding",
+        "Red-painted steel exterior exit stairs",
+        "Diamond-plate steel access stairs",
+      ],
+    ),
   },
 ];
 
@@ -356,7 +409,7 @@ export function getAdjacentProject(category: ProjectCategory, slug: string): Pro
   return list[(index + 1) % list.length];
 }
 
-export const featuredProjectSlug = "cedar-ridge-residence";
+export const featuredProjectSlug = "grand-double-staircase";
 export const featuredProjectCategory: ProjectCategory = "residential";
 
 // ---------------------------------------------------------------------------
@@ -374,7 +427,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "MHM treated our budget like it was their own money. Every change order came with a real conversation, not a markup.",
     author: "Dana Whitfield",
-    role: "Homeowner, Cedar Ridge Residence",
+    role: "Homeowner",
   },
   {
     quote:
@@ -386,7 +439,7 @@ export const testimonials: Testimonial[] = [
     quote:
       "They found problems in our existing structure we didn't know we had, told us before it cost us anything, and fixed it inside the original schedule.",
     author: "Priya Anand",
-    role: "Developer, Northbank Warehouse Conversion",
+    role: "Developer",
   },
 ];
 
@@ -430,11 +483,6 @@ export const team: TeamMember[] = [
     name: "Francis Sloan",
     role: "Architect",
     image: { src: "/images/team/francis-sloan.jpg", alt: "Portrait of Francis Sloan, Architect, reviewing building plans" },
-  },
-  {
-    name: "Dante",
-    role: "Chief Morale Officer",
-    image: { src: "/images/team/dante.jpg", alt: "Portrait of Dante, Chief Morale Officer" },
   },
 ];
 
