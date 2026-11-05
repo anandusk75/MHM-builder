@@ -15,7 +15,7 @@ import {
 } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: { absolute: siteConfig.name },
   description: siteConfig.description,
 };
 
